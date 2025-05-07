@@ -6,10 +6,42 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
+            <table class="auto-style1">
+                <tr>
+                    <td>
+                        <asp:Label ID="lblProductos" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Productos"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical">
+                            <AlternatingRowStyle BackColor="White" />
+                            <Columns>
+                                <asp:TemplateField HeaderText="Id Producto"></asp:TemplateField>
+                                <asp:TemplateField HeaderText="Nombre Producto"></asp:TemplateField>
+                            </Columns>
+                            <FooterStyle BackColor="#CCCC99" />
+                            <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
+                            <RowStyle BackColor="#F7F7DE" />
+                            <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#FBFBF2" />
+                            <SortedAscendingHeaderStyle BackColor="#848384" />
+                            <SortedDescendingCellStyle BackColor="#EAEAD3" />
+                            <SortedDescendingHeaderStyle BackColor="#575357" />
+                        </asp:GridView>
+                    </td>
+                </tr>
+            </table>
         </div>
     </form>
 </body>
