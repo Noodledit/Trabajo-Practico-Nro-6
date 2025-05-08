@@ -32,6 +32,16 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Nombre Producto"></asp:TemplateField>
+                                <asp:TemplateField HeaderText="Cantidad Por Unidad">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_it_cantPorUnidad" runat="server" Text='<%# Bind("CantidadPorUnidad") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Precio Por Unidad">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_it_precioUnidad" runat="server" Text='<%# Bind("PrecioUnidad") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                             </Columns>
                             <FooterStyle BackColor="#CCCC99" />
                             <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
