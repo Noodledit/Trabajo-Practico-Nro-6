@@ -34,7 +34,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style2">
-                        <asp:LinkButton ID="lbtnEjercicio1" runat="server">Ejercicio 1</asp:LinkButton>
+                        <asp:LinkButton ID="lbtnEjercicio1" runat="server" OnClick="lbtnEjercicio1_Click">Ejercicio 1</asp:LinkButton>
                     </td>
                 </tr>
                 <tr>
@@ -42,7 +42,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">
-                        <asp:LinkButton ID="lbtnEjercicio2" runat="server">Ejercicio 2</asp:LinkButton>
+                        <asp:LinkButton ID="lbtnEjercicio2" runat="server" OnClick="lbtnEjercicio2_Click">Ejercicio 2</asp:LinkButton>
                     </td>
                 </tr>
             </table>

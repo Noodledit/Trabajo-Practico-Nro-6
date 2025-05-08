@@ -21,7 +21,7 @@ namespace TP6_Grupo_12.Ejercicio_1
 
         }
 
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
 
         }
