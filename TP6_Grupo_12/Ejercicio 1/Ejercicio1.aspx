@@ -31,7 +31,11 @@
                                         <asp:Label ID="lbl_it_idProducto" runat="server" Text='<%# Bind("IdProducto") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Nombre Producto"></asp:TemplateField>
+                                <asp:TemplateField HeaderText="Nombre Producto">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_it_NombreProducto" runat="server" Text='<%# Bind("NombreProducto") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Cantidad Por Unidad">
                                     <ItemTemplate>
                                         <asp:Label ID="lbl_it_cantPorUnidad" runat="server" Text='<%# Bind("CantidadPorUnidad") %>'></asp:Label>
