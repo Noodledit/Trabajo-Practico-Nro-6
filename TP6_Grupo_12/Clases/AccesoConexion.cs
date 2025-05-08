@@ -11,7 +11,7 @@ namespace TP6_Grupo_12.Clases
     public class AccesoConexion
     {
         private string stringConnection = "Data Source=localhost\\sqlexpress; Initial Catalog=Neptuno; Integrated Security=True";
-   
+
         public AccesoConexion() { }//constructor
 
         public SqlConnection ObtenerConexion()
@@ -26,6 +26,27 @@ namespace TP6_Grupo_12.Clases
             {
                 return null;
             }
+        }
+
+        public SqlDataAdapter ObtenerAdaptador(string consulta)
+        {
+
+            SqlDataAdapter adaptadorSQL;
+
+            try
+            {
+                adaptadorSQL = new SqlDataAdapter(consulta, ObtenerConexion());
+                return adaptadorSQL;
+
+            }
+            catch (Exception exception)
+            {
+                {
+
+                    return null;
+                }
+            }
+
         }
     }
 }
