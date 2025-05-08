@@ -26,7 +26,11 @@
                         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
-                                <asp:TemplateField HeaderText="Id Producto"></asp:TemplateField>
+                                <asp:TemplateField HeaderText="Id Producto">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_it_idProducto" runat="server" Text='<%# Bind("IdProducto") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Nombre Producto"></asp:TemplateField>
                             </Columns>
                             <FooterStyle BackColor="#CCCC99" />
