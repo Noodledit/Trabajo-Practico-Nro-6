@@ -13,5 +13,17 @@ namespace TP6_Grupo_12.Ejercicio_1
         {
 
         }
+
+
+        /// ELIMINAR
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
