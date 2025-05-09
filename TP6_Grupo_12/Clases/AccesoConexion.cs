@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Drawing;
+using System.Data.Common;
 
 
 namespace TP6_Grupo_12.Clases
@@ -58,5 +59,56 @@ namespace TP6_Grupo_12.Clases
             }
 
         }
+        public bool GenerarProcedimientosAlmacenados()
+        {
+            bool estado = false;
+            string agregarProcedimientoActualizar =
+                "IF OBJECT_ID('dbo.spActualizarProducto', 'P') IS NULL " +
+                "BEGIN " +
+                "EXEC('CREATE PROCEDURE [dbo].[spActualizarProducto] " +
+                "(@IDPRODUCTO INT, @NOMBREPRODUCTO NVARCHAR(40), @CANTIDADPORUNIDAD NVARCHAR(20), @PRECIOUNIDAD MONEY) " +
+                "AS BEGIN " +
+                "UPDATE Productos SET " +
+                "NombreProducto = @NOMBREPRODUCTO, " +
+                "CantidadPorUnidad = @CANTIDADPORUNIDAD, " +
+                "PrecioUnidad = @PRECIOUNIDAD " +
+                "WHERE IDProducto = @IDPRODUCTO; " +
+                "END') " +
+                "END";
+
+            string agregarProcedimientoEliminar =
+                "IF OBJECT_ID('dbo.spEliminarProducto', 'P') IS NULL " +
+                "BEGIN " +
+                "EXEC('CREATE PROCEDURE [dbo].[spEliminarProducto] " +
+                "(@IDPRODUCTO INT) " +
+                "AS BEGIN " +
+                "DELETE FROM Productos WHERE IDProducto = @IDPRODUCTO; " +
+                "END') " +
+                "END";
+
+            using (SqlConnection conexion = ObtenerConexion())
+            {
+                try
+                {
+                    SqlCommand sqlCommand = new SqlCommand(agregarProcedimientoActualizar, conexion);
+                    
+                        sqlCommand.ExecuteNonQuery();
+
+                    sqlCommand = new SqlCommand(agregarProcedimientoEliminar, conexion);
+                    
+                        sqlCommand.ExecuteNonQuery();
+                    
+                    estado = true;
+                    conexion.Close();
+                }
+                catch (Exception ex)
+                {
+                    estado = false;
+                    // Puedes registrar el error aquí si lo necesitas
+                }
+            }
+            return estado;
+        }
+
     }
 }
