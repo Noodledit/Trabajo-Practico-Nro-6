@@ -16,15 +16,25 @@ namespace TP6_Grupo_12.Clases
 
         public SqlConnection ObtenerConexion()
         {
-            SqlConnection conexion = new SqlConnection(stringConnection);
             try
             {
+                SqlConnection conexion = new SqlConnection(stringConnection);
                 conexion.Open();
                 return conexion;
             }
             catch (Exception exception)
             {
-                return null;
+                try
+                {
+                    string stringSecundaryConnection = stringConnection.Replace("\\sqlexpress", "");
+                    SqlConnection conexion = new SqlConnection(stringSecundaryConnection);
+                    conexion.Open();
+                    return conexion;
+                }
+                catch (Exception exception2)
+                {
+                    return null;
+                }
             }
         }
 
@@ -42,7 +52,6 @@ namespace TP6_Grupo_12.Clases
             catch (Exception exception)
             {
                 {
-
                     return null;
                 }
             }
