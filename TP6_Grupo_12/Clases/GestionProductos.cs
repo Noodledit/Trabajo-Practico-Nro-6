@@ -27,7 +27,7 @@ namespace TP6_Grupo_12.Clases
             return dataSet.Tables[nombreTabla];
         }
         // Declarar el método ArmarParametrosEliminarProductos
-        private void ArmarParametrosEliminarProductos(ref SqlCommand sqlCommand, Libro libro)
+        public void ArmarParametrosEliminarProductos(ref SqlCommand sqlCommand, Libro libro)
         {
             SqlParameter sqlParameter = new SqlParameter();
             sqlParameter = sqlCommand.Parameters.Add("@IdLibro", SqlDbType.Int);
