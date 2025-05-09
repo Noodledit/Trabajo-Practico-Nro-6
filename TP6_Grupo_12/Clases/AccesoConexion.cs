@@ -11,7 +11,7 @@ namespace TP6_Grupo_12.Clases
 {
     public class AccesoConexion
     {
-        private string stringConnection = "Server=DESKTOP-JNJ0TAL\\SQLEXPRESS;DataBase = Neptuno; Integrated Security = True;";
+        private string stringConnection = "Data Source=localhost\\sqlexpress; Initial Catalog=Neptuno; Integrated Security=True;";
 
         public AccesoConexion() { }//constructor
 
