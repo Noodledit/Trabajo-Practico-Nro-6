@@ -25,5 +25,30 @@ namespace TP6_Grupo_12.Clases
             _CantidadPorUnidad = cantidadPorUnidad;
             _PrecioUnidad = precioUnitario;
         }
+
+        //GETTERS y SETTERS
+        public int IdProducto
+        {
+            get { return _IdProducto; }
+            set { _IdProducto = value; }
+        }
+
+        public string NombreProducto
+        {
+            get { return _NombreProducto; }
+            set { _NombreProducto = value; }
+        }
+
+        public string CantidadPorUnidad
+        {
+            get { return _CantidadPorUnidad; }
+            set { _CantidadPorUnidad = value; }
+        }
+
+        public decimal PrecioUnidad
+        {
+            get { return _PrecioUnidad; }
+            set { _PrecioUnidad = value; }
+        }
     }
 }
