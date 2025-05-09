@@ -4,13 +4,14 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Data;
+using System.Drawing;
 
 
 namespace TP6_Grupo_12.Clases
 {
     public class AccesoConexion
     {
-        private string stringConnection = "Data Source=localhost\\sqlexpress; Initial Catalog=Neptuno; Integrated Security=True";
+        private string stringConnection = "Server=DESKTOP-JNJ0TAL\\SQLEXPRESS;DataBase = Neptuno; Integrated Security = True;";
 
         public AccesoConexion() { }//constructor
 
