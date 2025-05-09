@@ -19,6 +19,8 @@
                 <tr>
                     <td>
                         <asp:Label ID="lblProductos" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Productos"></asp:Label>
+                        <br />
+                        <asp:Label ID="lblMensaje" runat="server"></asp:Label>
                     </td>
                 </tr>
                 <tr>

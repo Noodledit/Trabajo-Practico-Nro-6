@@ -16,7 +16,15 @@ namespace TP6_Grupo_12.Ejercicio_1
         {
             if (!IsPostBack)
             {
-                
+                AccesoConexion accesoConexion = new AccesoConexion();
+                if (accesoConexion.GenerarProcedimientosAlmacenados())
+                {
+                    lblMensaje.Text = "Procedimientos almacenados generados correctamente.";
+                }
+                else
+                {
+                    lblMensaje.Text = "Error al generar procedimientos almacenados.";
+                }
             }
         }
 
