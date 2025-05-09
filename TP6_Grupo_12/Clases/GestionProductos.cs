@@ -14,9 +14,8 @@ namespace TP6_Grupo_12.Clases
 
         }
 
-        private DataTable ObtenerTabla(string nombreTabla, string consultaSQL)
+        public DataTable ObtenerTabla(string nombreTabla, string consultaSQL)
         {
-
             DataSet dataSet = new DataSet();
 
             AccesoConexion datos = new AccesoConexion();
@@ -26,7 +25,6 @@ namespace TP6_Grupo_12.Clases
             sqlDataAdapter.Fill(dataSet, nombreTabla);
 
             return dataSet.Tables[nombreTabla];
-
         }
 
 
