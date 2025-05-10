@@ -50,5 +50,7 @@ namespace TP6_Grupo_12.Clases
             get { return _PrecioUnidad; }
             set { _PrecioUnidad = value; }
         }
+
+
     }
 }

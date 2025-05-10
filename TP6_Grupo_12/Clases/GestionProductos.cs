@@ -58,5 +58,14 @@ namespace TP6_Grupo_12.Clases
                 return false;
             }
         }
+        public Producto ArmarParametroProducto(int idProducto, string nombreProducto, string cantidadPorUnidad, decimal precioUnidad)
+        {
+            Producto producto = new Producto();
+            producto.IdProducto = idProducto;
+            producto.NombreProducto = nombreProducto;
+            producto.CantidadPorUnidad = cantidadPorUnidad;
+            producto.PrecioUnidad = precioUnidad;
+            return producto;
+        }
     }
 }
