@@ -58,14 +58,12 @@ namespace TP6_Grupo_12.Clases
                 return false;
             }
         }
-        public Producto ArmarParametroProducto(int idProducto, string nombreProducto, string cantidadPorUnidad, decimal precioUnidad)
-        {
-            Producto producto = new Producto();
-            producto.IdProducto = idProducto;
-            producto.NombreProducto = nombreProducto;
-            producto.CantidadPorUnidad = cantidadPorUnidad;
-            producto.PrecioUnidad = precioUnidad;
-            return producto;
+        public void ArmarParametroProducto(ref SqlCommand comandoSql, Producto producto)
+        {// se asigna el valor del idProducto a la variable de la consulta
+            comandoSql.Parameters.Add("@IDPRODUCTO", SqlDbType.Int).Value = producto.IdProducto;
+            comandoSql.Parameters.Add("@NOMBREPRODUCTO", SqlDbType.NVarChar, 40).Value = producto.NombreProducto;
+            comandoSql.Parameters.Add("@CANTIDADPORUNIDAD", SqlDbType.NVarChar, 20).Value = producto.CantidadPorUnidad;
+            comandoSql.Parameters.Add("@PRECIOUNIDAD", SqlDbType.Money).Value = producto.PrecioUnidad;
         }
     }
 }
