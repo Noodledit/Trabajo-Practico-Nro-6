@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Runtime.Remoting.Messaging;
 
 namespace TP6_Grupo_12.Clases
 {
@@ -33,5 +34,22 @@ namespace TP6_Grupo_12.Clases
         //    sqlParameter = sqlCommand.Parameters.Add("@IdLibro", SqlDbType.Int);
         //    sqlParameter.Value = libro.IdLibro;
         //}
+
+        public bool ActualizarProducto(Producto product)
+        {
+            SqlCommand sqlCommand = new SqlCommand();
+            //ArmarParametros
+            AccesoConexion acceso = new AccesoConexion();
+            int ProductoIn = 1;//EjecutarProcedimiento
+
+            if (ProductoIn == 1) 
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
