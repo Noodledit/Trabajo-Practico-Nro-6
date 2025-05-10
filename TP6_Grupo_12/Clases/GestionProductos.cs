@@ -42,12 +42,20 @@ namespace TP6_Grupo_12.Clases
             sqlParameter.Value = producto.IdProducto;
         }
 
+        public void ArmarParametroProducto(ref SqlCommand comandoSql, Producto producto)
+        {// se asigna el valor del idProducto a la variable de la consulta
+            comandoSql.Parameters.Add("@IDPRODUCTO", SqlDbType.Int).Value = producto.IdProducto;
+            comandoSql.Parameters.Add("@NOMBREPRODUCTO", SqlDbType.NVarChar, 40).Value = producto.NombreProducto;
+            comandoSql.Parameters.Add("@CANTIDADPORUNIDAD", SqlDbType.NVarChar, 20).Value = producto.CantidadPorUnidad;
+            comandoSql.Parameters.Add("@PRECIOUNIDAD", SqlDbType.Money).Value = producto.PrecioUnidad;
+        }
+
         public bool ActualizarProducto(Producto product)
         {
-            SqlCommand sqlCommand = new SqlCommand();
-            //ArmarParametros
+            SqlCommand comand = new SqlCommand();
+            ArmarParametroProducto(ref comand, product);
             AccesoConexion acceso = new AccesoConexion();
-            int ProductoIn = 1;//EjecutarProcedimiento
+            int ProductoIn = acceso.EjecutarProcedimientoAlmacenado(comand, "ActualizarProducto");
 
             if (ProductoIn == 1) 
             {
@@ -58,12 +66,6 @@ namespace TP6_Grupo_12.Clases
                 return false;
             }
         }
-        public void ArmarParametroProducto(ref SqlCommand comandoSql, Producto producto)
-        {// se asigna el valor del idProducto a la variable de la consulta
-            comandoSql.Parameters.Add("@IDPRODUCTO", SqlDbType.Int).Value = producto.IdProducto;
-            comandoSql.Parameters.Add("@NOMBREPRODUCTO", SqlDbType.NVarChar, 40).Value = producto.NombreProducto;
-            comandoSql.Parameters.Add("@CANTIDADPORUNIDAD", SqlDbType.NVarChar, 20).Value = producto.CantidadPorUnidad;
-            comandoSql.Parameters.Add("@PRECIOUNIDAD", SqlDbType.Money).Value = producto.PrecioUnidad;
-        }
+        
     }
 }
