@@ -110,5 +110,22 @@ namespace TP6_Grupo_12.Clases
             return estado;
         }
 
+        public int EjecutarProcedimientoAlmacenado(SqlCommand comandoSql, string nombreProcedimientoAlmacenado)
+        {
+            int filasCambiadas;
+            SqlConnection sqlConnection = ObtenerConexion();
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand = comandoSql;
+
+            sqlCommand.Connection = sqlConnection;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.CommandText = nombreProcedimientoAlmacenado; 
+            filasCambiadas = sqlCommand.ExecuteNonQuery();
+
+            sqlConnection.Close();
+            return filasCambiadas;
+        }
     }
+
+    
 }
