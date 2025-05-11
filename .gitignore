@@ -34,7 +34,7 @@ _ReSharper*/
 ## NuGet packages
 *.nupkg
 *.snupkg
-
+**/packages/*
 *.nuspec
 project.lock.json
 project.fragment.lock.json
