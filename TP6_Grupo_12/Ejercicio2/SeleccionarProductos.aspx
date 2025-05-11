@@ -11,6 +11,12 @@
         .auto-style1 {
             width: 100%;
         }
+        .auto-style2 {
+            height: 23px;
+        }
+        .auto-style3 {
+            height: 166px;
+        }
         </style>
 </head>
 <body>
@@ -26,8 +32,8 @@
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
-                                <td>
-                        <asp:GridView ID="gvProductos" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical">
+                                <td class="auto-style3">
+                        <asp:GridView ID="gvProductos" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" AllowPaging="True" AutoGenerateSelectButton="True" PageSize="14">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:TemplateField HeaderText="ID del Producto">
@@ -62,11 +68,11 @@
                             <SortedDescendingHeaderStyle BackColor="#575357" />
                         </asp:GridView>
                                 </td>
-                                <td>&nbsp;</td>
+                                <td class="auto-style3"></td>
                             </tr>
                             <tr>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
+                                <td class="auto-style2"></td>
+                                <td class="auto-style2"></td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -76,8 +82,6 @@
                     </td>
                 </tr>
             </table>
-        <div>
-        </div>
     </form>
 </body>
 </html>
