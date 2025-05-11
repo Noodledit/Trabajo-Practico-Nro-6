@@ -52,9 +52,11 @@ namespace TP6_Grupo_12.Ejercicio_1
 
         }
 
-        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        protected void gvProductos_RowEditing(object sender, GridViewEditEventArgs e)
         {
-
+            gvProductos.EditIndex = e.NewEditIndex;
+            rellenarProductos();
         }
+
     }
 }
