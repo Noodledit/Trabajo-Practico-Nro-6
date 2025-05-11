@@ -38,8 +38,17 @@ namespace TP6_Grupo_12.Ejercicio_1
             gvProductos.DataBind();
         }
         /// ELIMINAR
-        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void gvProductos_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            string idProducto = ((label)gvProductos.Rows[e.RowIndex].FindControl("lbl_it_idProducto")).Text;
+
+            Producto product = new Producto(Convert.ToInt32(idProducto));
+
+            GestionProductos gestionProducts = new GestionProductos();
+            gestionProducts.EliminarProducto();
+
+            rellenarProductos();
+
 
         }
 

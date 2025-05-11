@@ -55,7 +55,7 @@ namespace TP6_Grupo_12.Clases
             SqlCommand comand = new SqlCommand();
             ArmarParametroProducto(ref comand, product);
             AccesoConexion acceso = new AccesoConexion();
-            int ProductoIn = acceso.EjecutarProcedimientoAlmacenado(comand, "ActualizarProducto");
+            int ProductoIn = acceso.EjecutarProcedimientoAlmacenado(comand, "spActualizarProducto");
 
             if (ProductoIn == 1) 
             {
