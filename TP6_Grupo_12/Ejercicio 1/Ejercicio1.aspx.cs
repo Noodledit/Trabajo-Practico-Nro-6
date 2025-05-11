@@ -27,9 +27,16 @@ namespace TP6_Grupo_12.Ejercicio_1
                 {
                     lblMensaje.Text = "Error al generar procedimientos almacenados.";
                 }
+
+                rellenarProductos();
             }
         }
-
+        protected void rellenarProductos()
+        {
+            DataTable dt = gestionProductos.ObtenerTodosLosProductos();
+            gvProductos.DataSource = dt;
+            gvProductos.DataBind();
+        }
         /// ELIMINAR
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
