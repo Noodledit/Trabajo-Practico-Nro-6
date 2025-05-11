@@ -45,7 +45,7 @@ namespace TP6_Grupo_12.Ejercicio_1
             Producto product = new Producto(Convert.ToInt32(idProducto));
 
             GestionProductos gestionProducts = new GestionProductos();
-            gestionProducts.EliminarProducto();
+            gestionProducts.EliminarProducto(product);
 
             rellenarProductos();
 
