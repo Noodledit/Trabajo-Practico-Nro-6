@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.EnterpriseServices;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -16,6 +17,9 @@ namespace TP6_Grupo_12.Ejercicio_1
         {
             if (!IsPostBack)
             {
+
+                cargarGridView();
+
                 AccesoConexion accesoConexion = new AccesoConexion();
                 if (accesoConexion.GenerarProcedimientosAlmacenados())
                 {
@@ -31,11 +35,33 @@ namespace TP6_Grupo_12.Ejercicio_1
         /// ELIMINAR
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            string idProducto = ((Label)gvProductos.Rows[e.RowIndex].FindControl("lbl_it_idProducto")).Text;
+
+            Producto producto = new Producto(Convert.ToInt32(idProducto));
+
+            GestionProductos gestionProductos = new GestionProductos();
+
+            gestionProductos.EliminarProducto(producto);
+
+            cargarGridView();
 
         }
 
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
+
+        }
+
+
+        private void cargarGridView()
+        {
+
+            GestionProductos gestionProductos = new GestionProductos();
+
+            gvProductos.DataSource = gestionProductos.ObtenerTodosLosProductos();
+
+            gvProductos.DataBind();
+
 
         }
     }

@@ -66,6 +66,26 @@ namespace TP6_Grupo_12.Clases
                 return false;
             }
         }
-        
+
+        public bool EliminarProducto(Producto producto)
+        {
+            SqlCommand sqlCommand = new SqlCommand();
+
+            ArmarParametrosEliminarProductos(ref sqlCommand, producto);
+
+            AccesoConexion accesoConexion = new AccesoConexion();
+
+            int FilasInsertadas = accesoConexion.EjecutarProcedimientoAlmacenado(sqlCommand, "spEliminarProducto");
+
+            if (FilasInsertadas == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
+
 }
