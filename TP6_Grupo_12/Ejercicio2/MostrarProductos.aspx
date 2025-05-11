@@ -37,8 +37,16 @@
                         <asp:GridView ID="gvProductos" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
-                                <asp:TemplateField HeaderText="ID del Producto"></asp:TemplateField>
-                                <asp:TemplateField HeaderText="Nombre del Producto"></asp:TemplateField>
+                                <asp:TemplateField HeaderText="ID del Producto">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_it_idProducto" runat="server" Text='<%# Bind("IdProducto") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Nombre del Producto">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_it_NombreProducto" runat="server" Text='<%# Bind("NombreProducto") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                 <asp:TemplateField HeaderText="ID del Proveedor"></asp:TemplateField>
                                 <asp:TemplateField HeaderText="Precio Unitario"></asp:TemplateField>
                             </Columns>
