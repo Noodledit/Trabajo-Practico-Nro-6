@@ -56,5 +56,10 @@ namespace TP6_Grupo_12.Ejercicio_1
             rellenarProductos();
         }
 
+        protected void gvProductos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            gvProductos.EditIndex = -1;
+            rellenarProductos();
+        }
     }
 }
