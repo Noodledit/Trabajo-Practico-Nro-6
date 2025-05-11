@@ -4,13 +4,24 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Linq;
 using System.Web;
+<<<<<<< HEAD
+=======
 using System.Runtime.Remoting.Messaging;
+>>>>>>> origin
 
 namespace TP6_Grupo_12.Clases
 {
     public class GestionProductos
     {
         public GestionProductos() 
+<<<<<<< HEAD
+        {
+
+        }
+
+        private DataTable ObtenerTabla(string nombreTabla, string consultaSQL)
+=======
+>>>>>>> origin
         {
 
         }
@@ -34,6 +45,14 @@ namespace TP6_Grupo_12.Clases
             return ObtenerTabla("Productos", consultaSQL);
         }
 
+<<<<<<< HEAD
+        }
+
+
+
+    }
+}
+=======
         // Declarar el método ArmarParametrosEliminarProductos
         public void ArmarParametrosEliminarProductos(ref SqlCommand sqlCommand, Producto producto)
         {
@@ -89,3 +108,4 @@ namespace TP6_Grupo_12.Clases
     }
 
 }
+>>>>>>> origin
