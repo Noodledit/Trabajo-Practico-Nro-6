@@ -48,8 +48,6 @@ namespace TP6_Grupo_12.Ejercicio_1
             gestionProducts.EliminarProducto(product);
 
             rellenarProductos();
-
-
         }
 
         protected void gvProductos_RowEditing(object sender, GridViewEditEventArgs e)
