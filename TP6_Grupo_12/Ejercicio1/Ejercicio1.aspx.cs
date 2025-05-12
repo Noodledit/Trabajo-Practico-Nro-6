@@ -79,5 +79,11 @@ namespace TP6_Grupo_12.Ejercicio_1
             gvProductos.EditIndex = -1;
             rellenarProductos();
         }
+
+        protected void gvProductos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvProductos.PageIndex = e.NewPageIndex;
+            CargarGrilla(); // Método que recarga los datos
+        }
     }
 }
