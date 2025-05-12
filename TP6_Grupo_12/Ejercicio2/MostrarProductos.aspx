@@ -39,7 +39,11 @@
                             <Columns>
                                 <asp:TemplateField HeaderText="IdProducto"></asp:TemplateField>
                                 <asp:TemplateField HeaderText="NombreProducto"></asp:TemplateField>
-                                <asp:TemplateField HeaderText="IdProveedor"></asp:TemplateField>
+                                <asp:TemplateField HeaderText="IdProveedor">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_it_IdProveedor" runat="server" Text='<%# Bind("IdProveedor") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                 <asp:TemplateField HeaderText="PrecioUnidad"></asp:TemplateField>
                             </Columns>
                             <FooterStyle BackColor="#CCCC99" />
