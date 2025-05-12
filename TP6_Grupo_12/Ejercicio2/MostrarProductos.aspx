@@ -62,6 +62,12 @@
                     <td class="auto-style2">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
+                <tr>
+                    <td class="auto-style2">&nbsp;</td>
+                    <td>
+                        <asp:HyperLink ID="hlVolver" runat="server" NavigateUrl="~/Ejercicio2/Ejercicio2.aspx">Volver a Inicio</asp:HyperLink>
+                    </td>
+                </tr>
             </table>
         </div>
     </form>

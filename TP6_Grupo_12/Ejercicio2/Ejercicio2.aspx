@@ -42,7 +42,7 @@
                     <td class="auto-style2">&nbsp;</td>
                     <td class="auto-style3">&nbsp;</td>
                     <td>
-                        <asp:HyperLink ID="hlSeleccionarProductos" runat="server" Style="color:blue; text-decoration:underline;">Seleccionar Productos</asp:HyperLink>
+                        <asp:HyperLink ID="hlSeleccionarProductos" runat="server" Style="color:blue; text-decoration:underline;" NavigateUrl="~/Ejercicio2/SeleccionarProductos.aspx">Seleccionar Productos</asp:HyperLink>
                     </td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
@@ -60,7 +60,7 @@
                     <td class="auto-style2">&nbsp;</td>
                     <td class="auto-style3">&nbsp;</td>
                     <td>
-                        <asp:HyperLink ID="hlMostrarProductos" runat="server" Style="color:blue; text-decoration:underline;">Mostrar Productos</asp:HyperLink>
+                        <asp:HyperLink ID="hlMostrarProductos" runat="server" Style="color:blue; text-decoration:underline;" NavigateUrl="~/Ejercicio2/MostrarProductos.aspx">Mostrar Productos</asp:HyperLink>
                     </td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
