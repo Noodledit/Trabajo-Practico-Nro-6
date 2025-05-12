@@ -17,6 +17,17 @@
         .auto-style3 {
             height: 166px;
         }
+        .auto-style4 {
+            width: 741px;
+        }
+        .auto-style5 {
+            height: 166px;
+            width: 741px;
+        }
+        .auto-style6 {
+            height: 23px;
+            width: 741px;
+        }
         </style>
 </head>
 <body>
@@ -28,11 +39,11 @@
                     <td>
                         <table class="auto-style1">
                             <tr>
-                                <td>&nbsp;</td>
+                                <td class="auto-style4">&nbsp;</td>
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
-                                <td class="auto-style3">
+                                <td class="auto-style5">
                         <asp:GridView ID="gvProductos" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" AllowPaging="True" AutoGenerateSelectButton="True" PageSize="14">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
@@ -71,11 +82,15 @@
                                 <td class="auto-style3"></td>
                             </tr>
                             <tr>
-                                <td class="auto-style2"></td>
-                                <td class="auto-style2"></td>
+                                <td class="auto-style6">Productos Agregados:
+                                    <asp:Label ID="lblAvisoAgregado" runat="server" Text="lblAvisoAgregado"></asp:Label>
+                                </td>
+                                <td class="auto-style2">&nbsp;</td>
                             </tr>
                             <tr>
-                                <td>&nbsp;</td>
+                                <td class="auto-style4">
+                        <asp:LinkButton ID="hl_volverInicio" runat="server">Volver a Inicio</asp:LinkButton>
+                                </td>
                                 <td>&nbsp;</td>
                             </tr>
                         </table>

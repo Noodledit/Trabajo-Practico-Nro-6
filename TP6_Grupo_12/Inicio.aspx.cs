@@ -16,12 +16,12 @@ namespace TP6_Grupo_12
 
         protected void lbtnEjercicio1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Ejercicio 1/Ejercicio1.aspx");
+            Response.Redirect("Ejercicio1/Ejercicio1.aspx");
         }
 
         protected void lbtnEjercicio2_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Ejercicio 2/Ejercicio2.aspx");
+            Response.Redirect("Ejercicio2/Ejercicio2.aspx");
         }
     }
 }
