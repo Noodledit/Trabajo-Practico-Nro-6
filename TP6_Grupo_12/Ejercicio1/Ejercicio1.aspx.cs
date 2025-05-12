@@ -61,5 +61,23 @@ namespace TP6_Grupo_12.Ejercicio_1
             gvProductos.EditIndex = -1;
             rellenarProductos();
         }
+
+        protected void gvProductos_RowUpdating1(object sender, GridViewUpdateEventArgs e)
+        {
+            // Se obtienen los valores de los controles de la fila editada
+            string idProducto = ((Label)gvProductos.Rows[e.RowIndex].FindControl("lbl_it_idProducto")).Text;
+            string nombreProducto = ((TextBox)gvProductos.Rows[e.RowIndex].FindControl("txt_edit_nombreProducto")).Text;
+            string cantidadPorUnidad = ((TextBox)gvProductos.Rows[e.RowIndex].FindControl("txt_edit_cantidadPorUnidad")).Text;
+            string precioUnidad = ((TextBox)gvProductos.Rows[e.RowIndex].FindControl("txt_edit_precioUnidad")).Text;
+
+            // Se crea un objeto producto con los datos editados
+            Producto product = new Producto(Convert.ToInt32(idProducto), nombreProducto, cantidadPorUnidad, Convert.ToDecimal(precioUnidad));
+            // se llama al método ActualizarProducto de la clase GestionProductos
+            GestionProductos gestionProducts = new GestionProductos();
+            gestionProducts.ActualizarProducto(product);
+            // se vuelve a cargar el GridView
+            gvProductos.EditIndex = -1;
+            rellenarProductos();
+        }
     }
 }
