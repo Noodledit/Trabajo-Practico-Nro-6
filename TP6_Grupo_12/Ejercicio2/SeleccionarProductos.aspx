@@ -89,7 +89,7 @@
                             </tr>
                             <tr>
                                 <td class="auto-style4">
-                        <asp:LinkButton ID="hl_volverInicio" runat="server">Volver a Inicio</asp:LinkButton>
+                                    <asp:HyperLink ID="hl_volverInicio" runat="server" NavigateUrl="~/Ejercicio2/Ejercicio2.aspx">Volver a Inicio</asp:HyperLink>
                                 </td>
                                 <td>&nbsp;</td>
                             </tr>
