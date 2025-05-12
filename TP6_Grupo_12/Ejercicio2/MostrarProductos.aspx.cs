@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TP6_Grupo_12.Clases;
 
 namespace TP6_Grupo_12.Ejercicio2
 {
@@ -14,6 +16,6 @@ namespace TP6_Grupo_12.Ejercicio2
 
         }
 
-        
+       
     }
 }
