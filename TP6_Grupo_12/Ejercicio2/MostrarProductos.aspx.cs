@@ -13,6 +13,14 @@ namespace TP6_Grupo_12.Ejercicio2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack) 
+            {
+                LLenarTablaProductosSeleccionados();
+            }
+        }
+        // crear metodo agregar fila que agregue una fila a la tabla de productos seleccionados
+        protected void LLenarTablaProductosSeleccionados()
+        {
             if (Session["tablaProductosSeleccionados"] != null)
             {
                 gvProductosSeleccionados.DataSource = (DataTable)Session["tablaProductosSeleccionados"];
@@ -20,6 +28,5 @@ namespace TP6_Grupo_12.Ejercicio2
             }
         }
 
-       
     }
 }

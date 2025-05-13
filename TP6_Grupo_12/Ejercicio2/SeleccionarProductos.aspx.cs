@@ -15,7 +15,7 @@ namespace TP6_Grupo_12.Ejercicio2
         {
             if (!IsPostBack)
             {
-             LLenarTablaProductos();
+                LLenarTablaProductos();
             }
 
         }
@@ -24,7 +24,7 @@ namespace TP6_Grupo_12.Ejercicio2
         {
             GestionProductos ProductManagement = new GestionProductos();
             DataTable ProductTable = ProductManagement.ObtenerTodosLosProductos();
-            gvProductos.DataSource = ProductTable; 
+            gvProductos.DataSource = ProductTable;
             gvProductos.DataBind();
         }
 
@@ -49,12 +49,11 @@ namespace TP6_Grupo_12.Ejercicio2
 
 
 
-        private DataTable AgregarFila(DataTable dataTable, Producto productoSeleccionado)
+        // crear metodo agregar fila
+        private void AgregarFila(DataTable tablaProductos, Producto productoSeleccionado)
         {
             return dataTable;
         }
-
-
 
         protected void gvProductos_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
@@ -65,18 +64,30 @@ namespace TP6_Grupo_12.Ejercicio2
             productoSeleccionado.IdProveedor = Convert.ToInt32(((Label)gvProductos.Rows[e.NewSelectedIndex].FindControl("lbl_it_idProveedor")).Text);
             productoSeleccionado.PrecioUnidad = Convert.ToDecimal(((Label)gvProductos.Rows[e.NewSelectedIndex].FindControl("lbl_it_precioUnitario")).Text);
 
+            DataTable tablaSeleccionados;
             if (Session["tablaProductosSeleccionados"] == null)
             {
-                Session["tablaProductosSeleccionados"] = CrearTablaSeleccionados();
-
-                //AgregarFila((DataTable)Session["tablaProductosSeleccionados"], productoSeleccionado);
+                tablaSeleccionados = CrearTablaSeleccionados();
             }
             else
             {
-                //AgregarFila((DataTable)Session["tablaProductosSeleccionados"], productoSeleccionado);
+                tablaSeleccionados = (DataTable)Session["tablaProductosSeleccionados"];
             }
 
-            lblAvisoAgregado.Text = productoSeleccionado.NombreProducto;
+            // Verificar si el producto ya está en la tabla
+            bool existe = tablaSeleccionados.AsEnumerable()
+                .Any(row => row.Field<int>("IdProducto") == productoSeleccionado.IdProducto);
+
+            if (!existe)
+            {
+                AgregarFila(tablaSeleccionados, productoSeleccionado);
+                lblAvisoAgregado.Text =productoSeleccionado.NombreProducto;
+            }
+            else
+            {
+                lblAvisoAgregado.Text = $"'{productoSeleccionado.NombreProducto}' ya fue seleccionado.";
+            }
         }
+
     }
 }
