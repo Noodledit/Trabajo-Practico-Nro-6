@@ -28,15 +28,33 @@ namespace TP6_Grupo_12.Ejercicio2
             gvProductos.DataBind();
         }
 
-        protected DataTable CrearTablaSeleccionados()
+        private DataTable CrearTablaSeleccionados()
         {
+            DataTable dataTable = new DataTable();
 
+            DataColumn dataColumn = new DataColumn("IdProducto", System.Type.GetType("System.Int32"));
+            dataTable.Columns.Add(dataColumn);
+
+            dataColumn = new DataColumn("NombreProducto", System.Type.GetType("System.String"));
+            dataTable.Columns.Add(dataColumn);
+
+            dataColumn = new DataColumn("IdProveedor", System.Type.GetType("System.Int32"));
+            dataTable.Columns.Add(dataColumn);
+
+            dataColumn = new DataColumn("PrecioUnidad", System.Type.GetType("System.Decimal"));
+            dataTable.Columns.Add(dataColumn);
+
+            return dataTable;
         }
 
-        protected DataTable AgregarFila(DataTable TablaSeleccionados, Producto productoSeleccionado)
-        {
 
+
+        private DataTable AgregarFila(DataTable dataTable, Producto productoSeleccionado)
+        {
+           
         }
+
+
 
         protected void gvProductos_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
