@@ -30,28 +30,28 @@ namespace TP6_Grupo_12.Ejercicio2
 
         private DataTable CrearTablaSeleccionados()
         {
-            DataTable dataTable = new DataTable();
+            DataTable tablaProductos = new DataTable();
 
             DataColumn dataColumn = new DataColumn("IdProducto", System.Type.GetType("System.Int32"));
-            dataTable.Columns.Add(dataColumn);
+            tablaProductos.Columns.Add(dataColumn);
 
             dataColumn = new DataColumn("NombreProducto", System.Type.GetType("System.String"));
-            dataTable.Columns.Add(dataColumn);
+            tablaProductos.Columns.Add(dataColumn);
 
             dataColumn = new DataColumn("IdProveedor", System.Type.GetType("System.Int32"));
-            dataTable.Columns.Add(dataColumn);
+            tablaProductos.Columns.Add(dataColumn);
 
             dataColumn = new DataColumn("PrecioUnidad", System.Type.GetType("System.Decimal"));
-            dataTable.Columns.Add(dataColumn);
+            tablaProductos.Columns.Add(dataColumn);
 
-            return dataTable;
+            return tablaProductos;
         }
 
 
 
         private DataTable AgregarFila(DataTable dataTable, Producto productoSeleccionado)
         {
-           
+            return dataTable;
         }
 
 
@@ -69,11 +69,11 @@ namespace TP6_Grupo_12.Ejercicio2
             {
                 Session["tablaProductosSeleccionados"] = CrearTablaSeleccionados();
 
-                AgregarFila((DataTable)Session["tablaProductosSeleccionados"], productoSeleccionado);
+                //AgregarFila((DataTable)Session["tablaProductosSeleccionados"], productoSeleccionado);
             }
             else
             {
-                AgregarFila((DataTable)Session["tablaProductosSeleccionados"], productoSeleccionado);
+                //AgregarFila((DataTable)Session["tablaProductosSeleccionados"], productoSeleccionado);
             }
 
             lblAvisoAgregado.Text = productoSeleccionado.NombreProducto;
