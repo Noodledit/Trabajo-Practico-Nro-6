@@ -39,22 +39,22 @@
                             <Columns>
                                 <asp:TemplateField HeaderText="IdProducto">
                                     <ItemTemplate>
-                                        <asp:Label ID="lbl_it_IdProducto" runat="server" Text='<%# Bind("IdProveedor") %>'></asp:Label>
+                                        <asp:Label ID="lbl_it_idProducto" runat="server" Text='<%# Bind("IdProducto") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="NombreProducto">
                                     <ItemTemplate>
-                                        <asp:Label ID="lbl_it_NombreProducto" runat="server" Text='<%# Bind("NombreProducto") %>'></asp:Label>
+                                        <asp:Label ID="lbl_it_nombreProducto" runat="server" Text='<%# Bind("NombreProducto") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="IdProveedor">
                                     <ItemTemplate>
-                                        <asp:Label ID="lbl_it_IdProveedor" runat="server" Text='<%# Bind("IdProveedor") %>'></asp:Label>
+                                        <asp:Label ID="lbl_it_idProveedor" runat="server" Text='<%# Bind("IdProveedor") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="PrecioUnidad">
                                     <ItemTemplate>
-                                        <asp:Label ID="lbl_it_PrecioUnidad" runat="server" Text='<%# Bind("PrecioUnidad") %>'></asp:Label>
+                                        <asp:Label ID="lbl_it_precioUnitario" runat="server" Text='<%# Bind("PrecioUnidad") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

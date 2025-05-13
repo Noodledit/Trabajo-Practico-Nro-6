@@ -13,7 +13,11 @@ namespace TP6_Grupo_12.Ejercicio2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["tablaProductosSeleccionados"] != null)
+            {
+                gvProductosSeleccionados.DataSource = (DataTable)Session["tablaProductosSeleccionados"];
+                gvProductosSeleccionados.DataBind();
+            }
         }
 
        
