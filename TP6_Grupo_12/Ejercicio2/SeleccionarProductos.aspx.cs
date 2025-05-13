@@ -15,9 +15,7 @@ namespace TP6_Grupo_12.Ejercicio2
         {
             if (!IsPostBack)
             {
-
              LLenarTablaProductos();
-
             }
 
         }
@@ -28,44 +26,39 @@ namespace TP6_Grupo_12.Ejercicio2
             DataTable ProductTable = ProductManagement.ObtenerTodosLosProductos();
             gvProductos.DataSource = ProductTable; 
             gvProductos.DataBind();
+        }
+
+        protected DataTable CrearTablaSeleccionados()
+        {
 
         }
 
-        protected void CrearTablaSeleccionados()
+        protected DataTable AgregarFila(DataTable TablaSeleccionados, Producto productoSeleccionado)
         {
-            // Crear la nueva tabla para los productos seleccionados
-            DataTable SelectedProductsTable = new DataTable();
 
-            // Definir las columnas
-            SelectedProductsTable.Columns.Add("ID", typeof(int));
-            SelectedProductsTable.Columns.Add("Nombre", typeof(string));
-            SelectedProductsTable.Columns.Add("Precio", typeof(decimal));
+        }
 
-            // Recorrer los productos en gvProductos
-            foreach (GridViewRow row in gvProductos.Rows)
+        protected void gvProductos_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            Producto productoSeleccionado = new Producto();
+
+            productoSeleccionado.IdProducto = Convert.ToInt32(((Label)gvProductos.Rows[e.NewSelectedIndex].FindControl("lbl_it_idProducto")).Text);
+            productoSeleccionado.NombreProducto = ((Label)gvProductos.Rows[e.NewSelectedIndex].FindControl("lbl_it_nombreProducto")).Text;
+            productoSeleccionado.IdProveedor = Convert.ToInt32(((Label)gvProductos.Rows[e.NewSelectedIndex].FindControl("lbl_it_idProveedor")).Text);
+            productoSeleccionado.PrecioUnidad = Convert.ToDecimal(((Label)gvProductos.Rows[e.NewSelectedIndex].FindControl("lbl_it_precioUnitario")).Text);
+
+            if (Session["tablaProductosSeleccionados"] == null)
             {
-                CheckBox chkSeleccionado = row.FindControl("chkSeleccionado") as CheckBox;
-                if (chkSeleccionado != null && chkSeleccionado.Checked)
-                {
-                    // Agregar el producto seleccionado a la tabla
-                    DataRow dr = SelectedProductsTable.NewRow();
-                    dr["ID"] = Convert.ToInt32(gvProductos.DataKeys[row.RowIndex].Value);
-                    dr["Nombre"] = row.Cells[1].Text;
-                    dr["Precio"] = Convert.ToDecimal(row.Cells[2].Text);
+                Session["tablaProductosSeleccionados"] = CrearTablaSeleccionados();
 
-                    SelectedProductsTable.Rows.Add(dr);
-                }
+                AgregarFila((DataTable)Session["tablaProductosSeleccionados"], productoSeleccionado);
+            }
+            else
+            {
+                AgregarFila((DataTable)Session["tablaProductosSeleccionados"], productoSeleccionado);
             }
 
-            // Guardar la tabla en una variable Session
-            Session["SelectedProducts"] = SelectedProductsTable;
-
-            // Enlazar la tabla al GridView gvSeleccionados
-            gvSeleccionados.DataSource = SelectedProductsTable;
-            gvSeleccionados.DataBind();
+            lblAvisoAgregado.Text = productoSeleccionado.NombreProducto;
         }
-
-
-
     }
 }

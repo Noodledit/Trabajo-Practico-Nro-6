@@ -44,7 +44,7 @@
                             </tr>
                             <tr>
                                 <td class="auto-style5">
-                        <asp:GridView ID="gvProductos" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" AllowPaging="True" AutoGenerateSelectButton="True" PageSize="14">
+                        <asp:GridView ID="gvProductos" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" AllowPaging="True" AutoGenerateSelectButton="True" PageSize="14" OnSelectedIndexChanging="gvProductos_SelectedIndexChanging">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:TemplateField HeaderText="ID del Producto">
@@ -64,7 +64,7 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Precio Unitario">
                                     <ItemTemplate>
-                                        <asp:Label ID="lbl_it_PrecioUnitario" runat="server" Text='<%# Bind("PrecioUnidad") %>'></asp:Label>
+                                        <asp:Label ID="lbl_it_precioUnitario" runat="server" Text='<%# Bind("PrecioUnidad") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
@@ -83,7 +83,7 @@
                             </tr>
                             <tr>
                                 <td class="auto-style6">Productos Agregados:
-                                    <asp:Label ID="lblAvisoAgregado" runat="server" Text="lblAvisoAgregado"></asp:Label>
+                                    <asp:Label ID="lblAvisoAgregado" runat="server"></asp:Label>
                                 </td>
                                 <td class="auto-style2">&nbsp;</td>
                             </tr>

@@ -9,6 +9,7 @@ namespace TP6_Grupo_12.Clases
     {
         private int _IdProducto;
         private string _NombreProducto;
+        private int _IdProveedor;
         private string _CantidadPorUnidad;
         private decimal _PrecioUnidad;
         public Producto() { }
@@ -37,6 +38,12 @@ namespace TP6_Grupo_12.Clases
         {
             get { return _NombreProducto; }
             set { _NombreProducto = value; }
+        }
+
+        public int IdProveedor
+        {
+            get { return _IdProveedor; }
+            set { _IdProveedor = value; }
         }
 
         public string CantidadPorUnidad
