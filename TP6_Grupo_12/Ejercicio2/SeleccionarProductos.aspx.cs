@@ -50,18 +50,16 @@ namespace TP6_Grupo_12.Ejercicio2
 
 
         // crear metodo agregar fila
-        private void AgregarFila(DataTable tablaProductos, Producto productoSeleccionado)
+        private DataTable AgregarFila(DataTable tablaProductos, Producto productoSeleccionado)
         {
             DataRow fila = tablaProductos.NewRow();
-
             fila["IdProducto"] = productoSeleccionado.IdProducto;
             fila["NombreProducto"] = productoSeleccionado.NombreProducto;
             fila["IdProveedor"] = productoSeleccionado.IdProveedor;
             fila["PrecioUnidad"] = productoSeleccionado.PrecioUnidad;
-
             tablaProductos.Rows.Add(fila);
-
             Session["tablaProductosSeleccionados"] = tablaProductos;
+            return tablaProductos;
         }
 
         protected void gvProductos_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
