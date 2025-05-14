@@ -65,7 +65,16 @@ namespace TP6_Grupo_12.Ejercicio2
 
         private bool ptoExtraConsultarID(DataTable tablaProductosSeleccionados, Producto productoSeleccionado)
         {
-           
+            foreach (DataRow fila in tablaProductosSeleccionados.Rows)
+            {
+                if ((int)fila["IdProducto"] == productoSeleccionado.IdProducto)
+                {
+                    lblAgregadoCorrectamente.Text = "El producto ya fue agregado";
+                    return true;
+                }
+                lblAgregadoCorrectamente.Text = "";
+            }
+            return false;
         }
 
         protected void gvProductos_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
