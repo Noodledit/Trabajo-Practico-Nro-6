@@ -105,5 +105,11 @@ namespace TP6_Grupo_12.Ejercicio2
             }
             lblAvisoAgregado.Text = productoSeleccionado.NombreProducto;
         }
+
+        protected void gvProductos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvProductos.PageIndex = e.NewPageIndex;
+            LLenarTablaProductos();
+        }
     }
 }
