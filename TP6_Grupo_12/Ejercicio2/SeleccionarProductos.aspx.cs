@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using TP6_Grupo_12.Clases;
 
+
 namespace TP6_Grupo_12.Ejercicio2
 {
     public partial class SeleccionarProductos : System.Web.UI.Page
@@ -50,7 +51,7 @@ namespace TP6_Grupo_12.Ejercicio2
 
 
         // crear metodo agregar fila
-        private DataTable AgregarFila(DataTable tablaProductos, Producto productoSeleccionado)
+        private void AgregarFila(DataTable tablaProductos, Producto productoSeleccionado)
         {
             DataRow fila = tablaProductos.NewRow();
             fila["IdProducto"] = productoSeleccionado.IdProducto;
@@ -58,8 +59,13 @@ namespace TP6_Grupo_12.Ejercicio2
             fila["IdProveedor"] = productoSeleccionado.IdProveedor;
             fila["PrecioUnidad"] = productoSeleccionado.PrecioUnidad;
             tablaProductos.Rows.Add(fila);
+
             Session["tablaProductosSeleccionados"] = tablaProductos;
-            return tablaProductos;
+        }
+
+        private void ptoExtraConsultarID(DataTable TablaProductosSeleccionados, Producto ProductoSeleccionado)
+        {
+            
         }
 
         protected void gvProductos_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
@@ -71,30 +77,17 @@ namespace TP6_Grupo_12.Ejercicio2
             productoSeleccionado.IdProveedor = Convert.ToInt32(((Label)gvProductos.Rows[e.NewSelectedIndex].FindControl("lbl_it_idProveedor")).Text);
             productoSeleccionado.PrecioUnidad = Convert.ToDecimal(((Label)gvProductos.Rows[e.NewSelectedIndex].FindControl("lbl_it_precioUnitario")).Text);
 
-            DataTable tablaSeleccionados;
             if (Session["tablaProductosSeleccionados"] == null)
             {
-                tablaSeleccionados = CrearTablaSeleccionados();
+                Session["tablaProductosSeleccionados"] = CrearTablaSeleccionados();
+
+                AgregarFila((DataTable)Session["tablaProductosSeleccionados"], productoSeleccionado);
             }
             else
             {
-                tablaSeleccionados = (DataTable)Session["tablaProductosSeleccionados"];
+                AgregarFila((DataTable)Session["tablaProductosSeleccionados"], productoSeleccionado);
             }
-
-            // Verificar si el producto ya está en la tabla
-            bool existe = tablaSeleccionados.AsEnumerable()
-                .Any(row => row.Field<int>("IdProducto") == productoSeleccionado.IdProducto);
-
-            if (!existe)
-            {
-                AgregarFila(tablaSeleccionados, productoSeleccionado);
-                lblAvisoAgregado.Text =productoSeleccionado.NombreProducto;
-            }
-            else
-            {
-                lblAvisoAgregado.Text = $"'{productoSeleccionado.NombreProducto}' ya fue seleccionado.";
-            }
+            lblAvisoAgregado.Text = productoSeleccionado.NombreProducto;
         }
-
     }
 }
