@@ -16,6 +16,9 @@ namespace TP6_Grupo_12.Ejercicio_2
 
         }
 
-       
+        protected void lbtnEliminarProductoSeleccionado_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
