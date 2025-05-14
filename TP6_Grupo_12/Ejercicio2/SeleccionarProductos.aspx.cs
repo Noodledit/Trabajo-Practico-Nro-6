@@ -63,9 +63,9 @@ namespace TP6_Grupo_12.Ejercicio2
             Session["tablaProductosSeleccionados"] = tablaProductos;
         }
 
-        private void ptoExtraConsultarID(DataTable TablaProductosSeleccionados, Producto ProductoSeleccionado)
+        private bool ptoExtraConsultarID(DataTable tablaProductosSeleccionados, Producto productoSeleccionado)
         {
-            
+           
         }
 
         protected void gvProductos_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
@@ -85,7 +85,14 @@ namespace TP6_Grupo_12.Ejercicio2
             }
             else
             {
-                AgregarFila((DataTable)Session["tablaProductosSeleccionados"], productoSeleccionado);
+                if (!ptoExtraConsultarID((DataTable)Session["tablaProductosSeleccionados"], productoSeleccionado))
+                {
+                    AgregarFila((DataTable)Session["tablaProductosSeleccionados"], productoSeleccionado);
+                }
+                else
+                {
+                    lblAvisoAgregado.Text = "El producto ya fue agregado";
+                }
             }
             lblAvisoAgregado.Text = productoSeleccionado.NombreProducto;
         }
